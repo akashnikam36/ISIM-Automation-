@@ -1,0 +1,170 @@
+package com.person;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Vector;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import com.ibm.itim.dataservices.model.ObjectProfileCategory;
+import com.ibm.itim.ws.model.WSAttribute;
+import com.ibm.itim.ws.model.WSOrganizationalContainer;
+import com.ibm.itim.ws.model.WSPerson;
+import com.ibm.itim.ws.model.WSRequest;
+import com.ibm.itim.ws.model.WSSession;
+import com.ibm.itim.ws.services.ArrayOfTns1WSAttribute;
+import com.ibm.itim.ws.services.ArrayOfXsdString;
+import com.ibm.itim.ws.services.WSLoginServiceException;
+import com.ibm.itim.ws.services.WSOrganizationalContainerService;
+import com.ibm.itim.ws.services.WSPersonService;
+import com.ibm.itim.ws.services.WSRequestService;
+import com.ibm.itim.ws.services.WSSessionService;
+import com.utilities.GenericWSClient;
+import com.utilities.Utils;
+
+public class personEntity extends GenericWSClient {
+	private static final String principal = "itim manager";
+	private static final String credential = "secret";
+	static final String WS_CONFIG_FILE = "Properties/People2.csv";
+	//------------------------------------------------------------------------------------------------------------
+	public void CREATEPERSON(String[] separatedValues){
+			
+		System.out.println(separatedValues[0]+"--"+separatedValues[1]);
+		
+		boolean executedSuccessfully = false;
+		WSSession session = loginIntoITIM(principal, credential);
+		WSPersonService personService = getPersonService();
+		
+		// Dependency on OrganizationalContainerservice.
+		WSOrganizationalContainerService port = getOrganizationalContainerService();
+		
+		
+		
+		
+		List<WSOrganizationalContainer> lstWSOrgContainers = port.searchContainerByName(
+				session, null, "OrganizationalUnit", PARAM_ORG_CONTAINER);
+		System.out.println("--------------------");
+				if (lstWSOrgContainers != null && !lstWSOrgContainers.isEmpty()){
+					System.out.println(lstWSOrgContainers.get(0).toString());
+					WSOrganizationalContainer wsContainer = lstWSOrgContainers.get(0);
+					//System.out.println(wsContainer.toString());
+		
+		//----------Adding Attributes--------------------------		
+				
+		XMLGregorianCalendar date = Utils.long2Gregorian(new Date().getTime());
+		
+			
+		Map<String, Object> map =new HashMap<String, Object>();
+		//map.put("objectclass", "erPersonItem");
+		
+		map.put("cn", "JAVA 1.8");
+		map.put("sn", "TEST");
+				
+		WSPerson wsPerson = createWSPersonAttributes(map);
+		boolean isCreatePersonAllowed = personService.isCreatePersonAllowed(session);
+		if(isCreatePersonAllowed){
+		WSRequest wsRequest = personService.createPerson(session, wsContainer, wsPerson, date);
+		Utils.printWSRequestDetails("create person", wsRequest);
+		//System.out.println("Create Person"+ wsRequest);
+		}else{
+			Utils.printMsg(personEntity.class.getName(), "CREATEPERSON", "The user " + principal + " is not authorized to create a person");
+			//System.out.println("Not allowed to create person------");
+		}
+		executedSuccessfully = true;
+	
+		}
+				if(executedSuccessfully == true){
+					WSRequestService requestService=getRequestService();
+					System.out.println("Person Created Sucessfully----");
+				}
+				
+	}
+	//------------------create Person Method()----------------
+		WSPerson createWSPersonAttributes(Map <String, Object> mpParams){
+			
+			WSPerson wsPerson=new WSPerson();
+			wsPerson.setProfileName(ObjectProfileCategory.PERSON);
+			System.out.println("*******************");
+			java.util.Collection attrList = new ArrayList();
+			java.util.Iterator<String> itrParams = mpParams.keySet().iterator();
+			WSAttribute wsAttr = null;
+		//	WSAttribute wsAttr = new WSAttribute();
+			List<WSAttribute> lstWSAttributes = new ArrayList<WSAttribute>();
+			while(itrParams.hasNext()){
+				String paramName = itrParams.next();
+				Object paramValue = mpParams.get(paramName);
+				System.out.println("ParamName ="+paramName);
+				System.out.println("paramValue ="+paramValue);
+				wsAttr = new WSAttribute();
+				wsAttr.setName(paramName);
+				ArrayOfXsdString arrStringValues = new ArrayOfXsdString();
+				
+				if(paramValue instanceof String) {
+					arrStringValues.getItem().addAll(Arrays.asList((String) paramValue));
+				}else if(paramValue instanceof Vector){
+					Vector paramValues = (Vector) paramValue;
+					arrStringValues.getItem().addAll(paramValues); 
+				}else{
+					System.out.println(personEntity.class.getName()+"The parameter value datatype is not supported.");
+				}
+				wsAttr.setValues(arrStringValues);
+				lstWSAttributes.add(wsAttr);
+			}
+			ArrayOfTns1WSAttribute attrs = new ArrayOfTns1WSAttribute();
+			attrs.getItem().addAll(lstWSAttributes);
+			wsPerson.setAttributes(attrs);
+			
+
+			return wsPerson;
+			
+		}
+
+	//-------------------------------------------------------------------------------------------------------------
+	private static WSSession loginIntoITIM(String principal2, String credential) throws Exception, WSLoginServiceException {
+		WSSessionService proxy = getSessionService();
+		WSSession session = proxy.login(principal, credential);
+		return session;
+	}
+	@Override
+	public boolean executeOperation(Map<String, Object> mpParams) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getUsage(String errMessage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String args[]) throws Exception{ 
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(WS_CONFIG_FILE));
+		String separator = ",";
+		String singleLine;
+		int lineCount = 0;
+		String columnName[] = null;
+		while ((singleLine = bufferedReader.readLine()) != null) {
+			if (lineCount == 0) {
+				columnName = singleLine.split(separator);
+				lineCount++;
+				continue;
+			}
+			String[] separatedValues = singleLine.split(separator);
+			//System.out.println(separatedValues[0]+"--"+columnName[0]);
+			HashMap<String, String> entryHashMap = CSVParser.hashMap(separatedValues, columnName);
+			System.out.println("------"+entryHashMap);
+			
+		}		
+				
+	}
+}

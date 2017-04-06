@@ -1,0 +1,5 @@
+Roles:Employee,Contractor
+description: It it Permant employee,It is an contractor
+parent: AmarAmara
+Employee:erglobalid=4843732686884035139,ou=roles,erglobalid=1495910086984201917,ou=IBM,dc=com
+Contractor:erglobalid=4843736806561494668,ou=roles,erglobalid=1495910086984201917,ou=IBM,dc=com

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/antlr-2.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/api_ejb.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/avalon.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/batik.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/biditools.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/bsf23.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/castor-0.9.4.3-xml.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/cct.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/com.ibm.cv.kmip.ext.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/com.ibm.sec.authz.jaccplus_7.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/com.ibm.sec.authz.xacml4j_7.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/com.ibm.tklm.credvault.common.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/com.ibm.tklm.kmip.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-cli.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-digester.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/commons-validator.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/CVCli.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/CVCommon.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/CVCore.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/db2jcc.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/diserverapi.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/dsml2.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/enroleagent.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/fop.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/iacustom.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ibmjs.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/icu4j-4_8_1_1.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itdiAgents-common.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_api.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_common.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_server.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_server_api.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_ws_client.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/itim_ws_model.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ITLMToolkit.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/j2ee.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/jakarta-oro.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/jffdc.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/JGo.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/JGoLayout.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/jhall.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/jlog.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ldapbp.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ldaputil.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/LUMClient.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/miconfig.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/miserver.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ps_nls_en.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/regexp.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/rmi-dispatcher-client.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/struts.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/struts-el.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/tdiresource.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/tua.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ui_api.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/wcc.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/wcl.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/web_resources.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/ws.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/wua.jar"/>
+	<classpathentry kind="lib" path="D:/ISIM Automation PRACTICE/WS jars/LIB/Zql.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

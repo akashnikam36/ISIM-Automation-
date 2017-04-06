@@ -1,0 +1,8 @@
+containername: AmarAmara
+ProfileName: WinLocalProfile, PosixLinuxProfile
+Servicename: WindowsServiceForEmployee, LinuxBoxForEmployee
+url: http://10.35.37.217:45580, 10.0.2.15
+username: agent,akash nikam	
+password: agent, akash
+
+WindowsServiceForEmployeeDN:erglobalid=2667434992691032687,ou=services,erglobalid=1495910086984201917,ou=IBM,dc=com

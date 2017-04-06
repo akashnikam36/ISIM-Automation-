@@ -1,0 +1,47 @@
+package com.driver;
+
+import java.io.FileInputStream;
+import java.util.*;
+
+import com.ibm.itim.ws.services.WSLoginServiceException;
+import com.setUpOrgTree.*;
+
+public class Driver {
+	static final String WS_CONFIG_FILE_ORGCHART = "Properties/OrgChart.properties";
+	public static void main(String args[]) throws WSLoginServiceException, Exception{
+		
+		Scanner in=new Scanner(System.in);
+		System.out.println("-----------------------------------------");
+		System.out.println("1.Orgnization Structure \n 2.Roles \n 3.Services \n4.Policies \n 5.Person");
+		int choice=in.nextInt();
+		while(choice!=0){
+			switch(choice){
+			case 1: Organization org=new Organization();
+					org.CreateOrganzationContainer();
+			case 2: 
+				OrgnizationUnit org=new OrgnizationUnit();
+				//org.CreateOrganzationContainer();
+				java.util.Properties properties = new java.util.Properties();
+				try {
+					properties.load(new FileInputStream(WS_CONFIG_FILE_ORGCHART));
+					//properties.getClass().getResourceAsStream(WS_CONFIG_FILE);
+					System.out.println();
+				} catch (Exception e1) {
+					System.out.println("Error occurred while reading ("+ WS_CONFIG_FILE_ORGCHART +")");
+					e1.printStackTrace();
+				}
+				String orgnization=properties.getProperty("organization");
+				String ou[]= properties.getProperty("organizationalUnit").split(",");
+				int len=ou.length;
+				System.out.println("LENTH="+len);
+				for(int i=0;i<len;i++){
+					org.CreateOrganzationContainer(orgnization,ou[i]);
+				}
+			
+				
+			//--------------------------------------------------------------------------	
+			}
+		}
+	}
+
+}

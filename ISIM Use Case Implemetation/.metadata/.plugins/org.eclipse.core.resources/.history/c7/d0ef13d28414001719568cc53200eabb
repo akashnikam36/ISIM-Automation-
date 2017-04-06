@@ -1,0 +1,26 @@
+package com.person;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class CSVParser {
+	static final String WS_CONFIG_FILE = "Properties/People2.csv";
+	public static void main(String args[]) throws Exception{
+		
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(WS_CONFIG_FILE));
+		String separator = ";";
+		String singleLine;
+		int lineCount = 0;
+		String columnName[] = null;
+		while ((singleLine = bufferedReader.readLine()) != null) {
+			if (lineCount == 0) {
+				columnName = singleLine.split(separator);
+				lineCount++;
+				continue;
+			}
+		}
+		
+	}
+
+}

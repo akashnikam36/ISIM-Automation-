@@ -1,0 +1,65 @@
+package com.person;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
+
+import com.ibm.itim.ws.model.WSSession;
+import com.ibm.itim.ws.services.WSLoginServiceException;
+import com.ibm.itim.ws.services.WSSessionService;
+import com.utilities.GenericWSClient;
+
+public class personEntity extends GenericWSClient {
+	private static final String principal = "itim manager";
+	private static final String credential = "secret";
+	static final String WS_CONFIG_FILE = "Properties/People2.csv";
+	//------------------------------------------------------------------------------------------------------------
+	public void CREATEPERSON(String[] separatedValues){
+		System.out.println(separatedValues[0]);
+	}
+
+	//-------------------------------------------------------------------------------------------------------------
+	private static WSSession loginIntoITIM(String principal2, String credential) throws Exception, WSLoginServiceException {
+		WSSessionService proxy = getSessionService();
+		WSSession session = proxy.login(principal, credential);
+		return session;
+	}
+	@Override
+	public boolean executeOperation(Map<String, Object> mpParams) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getUsage(String errMessage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String args[]) throws Exception{ 
+		BufferedReader bufferedReader;
+		try {
+			bufferedReader = new BufferedReader(new FileReader(WS_CONFIG_FILE));
+			String separator = ",";
+			String singleLine;
+			int lineCount = 0;
+			while ((singleLine = bufferedReader.readLine()) != null) {
+				if (lineCount == 0) {
+					lineCount++;
+					continue;
+				}
+				String[] separatedValues = singleLine.split(separator);
+				personEntity person=new personEntity();
+				person.CREATEPERSON(separatedValues);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+	}
+}

@@ -1,0 +1,34 @@
+package com.person;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
+public class ParserTest {
+	static final String WS_CONFIG_FILE = "Properties/People2.csv";
+	public static void main(String args[]) throws IOException{
+		 
+		
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(WS_CONFIG_FILE));
+		String separator = ",";
+		String singleLine;
+		int lineCount = 0;
+		String columnName[] = null;
+		while ((singleLine = bufferedReader.readLine()) != null) {
+			if (lineCount == 0) {
+				columnName = singleLine.split(separator);
+				lineCount++;
+				continue;
+			}
+			String[] separatedValues = singleLine.split(separator);
+			//System.out.println(separatedValues[0]+"--"+columnName[0]);
+			HashMap<String, String> entryHashMap = CSVParser.hashMap(separatedValues, columnName);
+			System.out.println(entryHashMap);
+						
+		}		
+			
+	
+	}
+}
